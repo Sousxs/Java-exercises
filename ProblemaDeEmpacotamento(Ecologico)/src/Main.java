@@ -8,7 +8,6 @@ import java.util.Collections;
 public class Main {
 
     public static void main(String[] args) {
-        // Configura o look and feel para um visual mais moderno
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -22,10 +21,9 @@ public class Main {
         JFrame frame = new JFrame("Otimização de Empacotamento");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 500);
-        frame.setLocationRelativeTo(null);  // Centraliza a janela
+        frame.setLocationRelativeTo(null); 
         frame.setLayout(new BorderLayout());
 
-        // Painel principal
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -33,28 +31,22 @@ public class Main {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
 
-        // Campo de entrada das caixas
         JLabel caixaLabel = new JLabel("Volumes das Caixas (separados por espaço):");
         JTextField caixaField = new JTextField(20);
 
-        // Campo de entrada dos caminhões
         JLabel caminhaoLabel = new JLabel("Capacidades dos Caminhões (separados por espaço):");
         JTextField caminhaoField = new JTextField(20);
 
-        // Botão de calcular
         JButton calcularButton = new JButton("Calcular Cargas");
 
-        // Botão de reset
         JButton resetButton = new JButton("Limpar");
 
-        // Área de resultado
         JTextArea resultadoArea = new JTextArea(10, 40);
         resultadoArea.setEditable(false);
         resultadoArea.setFont(new Font("Arial", Font.PLAIN, 14));
         resultadoArea.setMargin(new Insets(10, 10, 10, 10));
         JScrollPane scrollPane = new JScrollPane(resultadoArea);
 
-        // Adiciona os componentes ao painel principal
         panel.add(caixaLabel, gbc);
         panel.add(caixaField, gbc);
         panel.add(caminhaoLabel, gbc);
@@ -62,11 +54,9 @@ public class Main {
         panel.add(calcularButton, gbc);
         panel.add(resetButton, gbc);
 
-        // Adiciona o painel à janela principal
         frame.add(panel, BorderLayout.NORTH);
         frame.add(scrollPane, BorderLayout.CENTER);
 
-        // Configura o botão de ação para calcular as cargas
         calcularButton.addActionListener(e -> {
             try {
                 List<Integer> volumesCaixas = parseVolumes(caixaField.getText());
@@ -84,7 +74,6 @@ public class Main {
             }
         });
 
-        // Botão de reset para limpar os campos e a área de resultado
         resetButton.addActionListener(e -> {
             caixaField.setText("");
             caminhaoField.setText("");
@@ -94,27 +83,25 @@ public class Main {
         frame.setVisible(true);
     }
 
-    // Método para analisar os volumes
     private static List<Integer> parseVolumes(String input) {
         return List.of(input.trim().split("\\s+")).stream()
-                .filter(s -> !s.isEmpty()) // Ignora strings vazias
+                .filter(s -> !s.isEmpty()) 
                 .map(Integer::parseInt)
-                .filter(i -> i > 0) // Filtra valores positivos
+                .filter(i -> i > 0) 
                 .collect(Collectors.toList());
     }
 
-    // Algoritmo de First Fit Decreasing
     private static List<List<Integer>> firstFitDecreasing(List<Integer> volumesCaixas, List<Integer> volumesCaminhoes) {
-        volumesCaixas.sort(Collections.reverseOrder()); // Ordena as caixas em ordem decrescente
+        volumesCaixas.sort(Collections.reverseOrder()); 
         List<List<Integer>> cargas = new ArrayList<>();
-        volumesCaminhoes.forEach(capacidade -> cargas.add(new ArrayList<>())); // Inicializa listas de cargas
+        volumesCaminhoes.forEach(capacidade -> cargas.add(new ArrayList<>())); 
 
         for (int volume : volumesCaixas) {
             boolean alocado = false;
             for (int i = 0; i < volumesCaminhoes.size(); i++) {
                 if (volumesCaminhoes.get(i) >= volume) {
-                    cargas.get(i).add(volume); // Adiciona a caixa ao caminhão
-                    volumesCaminhoes.set(i, volumesCaminhoes.get(i) - volume); // Atualiza a capacidade
+                    cargas.get(i).add(volume); 
+                    volumesCaminhoes.set(i, volumesCaminhoes.get(i) - volume);
                     alocado = true;
                     break;
                 }
@@ -127,7 +114,6 @@ public class Main {
         return cargas;
     }
 
-    // Formatação da saída das cargas
     private static String formatarCargas(List<List<Integer>> cargas) {
         StringBuilder resultado = new StringBuilder("Cargas dos caminhões:\n");
         int i = 1;
