@@ -1,0 +1,16 @@
+.text-field {
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.text-area {
+    -fx-font-size: 14px;
+    -fx-background-color: #f9f9f9;
+}
