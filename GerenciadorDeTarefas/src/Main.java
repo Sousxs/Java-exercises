@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception{
@@ -24,12 +23,14 @@ public class Main {
 
             else if (opcao == 5) {
                 Thread.sleep(2000);
-                System.out.println("Encerrando o programa");
+                System.out.println("Encerrando o programa...");
             }
             else
                 System.out.println("Opção inválida");
+                System.out.println("Tente novamente");
+                opcao = sc.nextInt();
 
-        }while(opcao <= 5 && opcao > 0);
+        }while(opcao<5 && opcao>=1);
     }
 
     public static void menu(){
@@ -46,6 +47,7 @@ public class Main {
         System.out.println("Digite o nome da tarefa:");
         String nome = sc.nextLine();
         s.add(nome);
+        System.out.println("Tarefa cadastrada com sucesso!");
     }
     public static void listarTarefas(ArrayList<String> s){
         if(s.isEmpty()) {
@@ -62,16 +64,6 @@ public class Main {
 
     }
     public static void excluirTarefa(ArrayList<String> s){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite qual tarefa deseja excluir:");
-        String excluido = sc.nextLine();
 
-        boolean existe = s.contains(excluido);
-        if(existe) {
-            System.out.println("Item excluido com sucesso!");
-            s.remove(excluido);
-        }
-        else
-            System.out.println("Não existe essa tarefa");
     }
 }
