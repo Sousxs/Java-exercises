@@ -1,3 +1,5 @@
+package src;
+
 public class Npc {
     private String nome;
     private String conversa;

@@ -1,4 +1,5 @@
-import java.lang.classfile.instruction.SwitchCase;
+package src;
+
 import java.util.*;
 
 class Sala {

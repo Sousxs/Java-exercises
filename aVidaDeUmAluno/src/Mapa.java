@@ -1,4 +1,5 @@
-import javax.crypto.SecretKey;
+package src;
+
 import java.util.*;
 
 class Mapa {

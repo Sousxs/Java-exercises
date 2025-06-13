@@ -34,12 +34,17 @@ public class Main {
     }
 
     public static void menu(){
+        System.out.println("-----------------------------------------------------");
         System.out.println("Gerenciador de tarefas:");
+        System.out.println("Digite o número da opção desejada:");
+        System.out.println();
         System.out.println("1 - Cadastrar tarefa");
         System.out.println("2 - Listar tarefas");
         System.out.println("3 - Editar tarefa");
         System.out.println("4 - Excluir tarefa");
         System.out.println("5 - Sair");
+        System.out.println();
+        System.out.println("-----------------------------------------------------");
     }
 
     public static void cadastrarTarefa(ArrayList<String> s){
