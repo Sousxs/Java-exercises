@@ -22,14 +22,9 @@ public class Main {
                 excluirTarefa(tarefas);
 
             else if (opcao == 5) {
-                Thread.sleep(2000);
                 System.out.println("Encerrando o programa...");
+                Thread.sleep(2000);
             }
-            else
-                System.out.println("Opção inválida");
-                System.out.println("Tente novamente");
-                opcao = sc.nextInt();
-
         }while(opcao<5 && opcao>=1);
     }
 
@@ -66,9 +61,38 @@ public class Main {
         }
     }
     public static void editarTarefa(ArrayList<String> s){
-
+        if(s.isEmpty()) {
+            System.out.println("Nenhuma tarefa cadastrada");
+            return;
+        }
+        Scanner sc = new Scanner(System.in);
+        listarTarefas(s);
+        System.out.println("Digite o número da tarefa que deseja editar:");
+        int numero = sc.nextInt();
+        sc.nextLine();
+        if(numero < 1 || numero > s.size()) {
+            System.out.println("Número inválido!");
+            return;
+        }
+        System.out.println("Digite o novo nome da tarefa:");
+        String novoNome = sc.nextLine();
+        s.set(numero - 1, novoNome);
+        System.out.println("Tarefa editada com sucesso!");
     }
     public static void excluirTarefa(ArrayList<String> s){
-
+        if(s.isEmpty()) {
+            System.out.println("Nenhuma tarefa cadastrada");
+            return;
+        }
+        Scanner sc = new Scanner(System.in);
+        listarTarefas(s);
+        System.out.println("Digite o número da tarefa que deseja excluir:");
+        int numero = sc.nextInt();
+        if(numero < 1 || numero > s.size()) {
+            System.out.println("Número inválido!");
+            return;
+        }
+        s.remove(numero - 1);
+        System.out.println("Tarefa excluída com sucesso!");
     }
 }
