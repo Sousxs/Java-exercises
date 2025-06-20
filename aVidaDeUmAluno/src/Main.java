@@ -1,5 +1,3 @@
-package src;
-
 import java.util.*;
 
 public class Main {
@@ -20,20 +18,20 @@ public class Main {
         System.out.println("Bem-vindo a vida de um Estudante da PUC-GO");
         System.out.println("Os estudantes estão sendo recebidos no Auditório 1, vá até lá e receba suas instruções!");
         System.out.println( "       ┌──────────────────────────────────────────────┐\n" +
-                            "       │                    AVENIDA                   │\n" +
-                            "       ├──────────────────────────────────────────────┤\n" +
-                            "       │   CALÇADAS:                                  │\n" +
-                            "       │   [x] Você                                   │\n" +
-                            "       │                                              │\n" +
-                            "       │                                              │\n" +
-                            "       │   ESTRADA:                                   │\n" +
-                            "       │   ║██║░░║██║░░║██║░░║██║░░║██║░░║██║░░║██║   │\n" +
-                            "       │                                              │\n" +
-                            "       │                                              │\n" +
-                            "       │   CALÇADAS:                                  │\n" +
-                            "       │                                              │\n" +
-                            "       │                                              │\n" +
-                            "       └──────────────────────────────────────────────┘\n");
+                "       │                    AVENIDA                   │\n" +
+                "       ├──────────────────────────────────────────────┤\n" +
+                "       │   CALÇADAS:                                  │\n" +
+                "       │   [x] Você                                   │\n" +
+                "       │                                              │\n" +
+                "       │                                              │\n" +
+                "       │   ESTRADA:                                   │\n" +
+                "       │   ║██║░░║██║░░║██║░░║██║░░║██║░░║██║░░║██║   │\n" +
+                "       │                                              │\n" +
+                "       │                                              │\n" +
+                "       │   CALÇADAS:                                  │\n" +
+                "       │                                              │\n" +
+                "       │                                              │\n" +
+                "       └──────────────────────────────────────────────┘\n");
         System.out.println("Digite 'ajuda' para ver os comandos disponíveis.");
 
 

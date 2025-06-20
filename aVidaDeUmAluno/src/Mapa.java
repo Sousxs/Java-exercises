@@ -1,6 +1,5 @@
-package src;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 class Mapa {
     private Map<String, Sala> salas;

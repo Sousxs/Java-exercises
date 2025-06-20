@@ -1,5 +1,3 @@
-package src;
-
 class Jogador {
     private Sala salaAtual;
     private Inventario inventario;
